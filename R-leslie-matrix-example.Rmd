@@ -1,0 +1,84 @@
+---
+title: "R-leslie-matrix-example"
+author: "Daniel Kerstan"
+date: "8/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating matrices in R
+
+Use the `matrix()` function to wrap a series of values (a vector) into a matrix
+
+-   Use `nrow =` to specify number of rows
+-   Use `ncol =` to specify number of columns
+-   Use `byrow = TRUE` to populate the matrix by ROWS instead of columns
+
+```{r}
+cats <- c(1, 4, 6, 5, 8, 10, 0.2, 4, 8, 10, 11, 100)
+
+# wrap cats into a matrix
+cat_matrix <- matrix(data = cats, nrow = 3, ncol = 4, byrow = TRUE)
+
+cat_matrix
+
+```
+
+```{r}
+dogs <- matrix(data = c(1, 0, 2, 3), nrow =2, ncol = 2, byrow = TRUE)
+
+rats <- matrix(data = c(1, 3, 4, 6), nrow = 2, ncol = 2, byrow = TRUE)
+
+dogs %*% rats
+
+dogs + rats
+
+dogs - rats
+
+
+rats %*% dogs
+
+```
+
+
+## Leslie Matrix
+```{r}
+
+
+
+insect_leslie <- matrix(data = c(0, 0, 600, 0.2, 0, 0, 0, 0.08, .6), nrow = 3, ncol = 3, byrow = TRUE)
+
+# specify the initial conditions
+# what is the population in each life stage at year 0
+
+insect_y0 <- c(12000, 700, 500)
+
+# project the population in each life stage for year 1
+
+insect_y1 <- insect_leslie %*% insect_y0
+insect_y1
+
+# project the population at each life stage for years 2,3,4
+insect_y2 <- insect_leslie %*% insect_y1
+insect_y2
+insect_y3 <- insect_leslie %*% insect_y2
+insect_y3
+insect_y4 <- insect_leslie %*% insect_y3
+insect_y4
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
