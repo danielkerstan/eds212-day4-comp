@@ -1,0 +1,41 @@
+---
+title: "My fancy Rmd"
+subtitle: "Some changes in YAML"
+author: "Daniel Kerstan"
+output: 
+  html_document:
+    theme: sandstone
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Part One
+## My first chapter
+
+### Preface
+
+Something awesome
+
+```{r}
+a <- 10
+b <- 25
+teddy <- a + b
+```
+# Part Two
+## My second chapter
+
+### A note on something
+
+```{r}
+
+
+a + b
+
+
+```
+
